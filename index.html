@@ -1,685 +1,657 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    span.s1 {font-kerning: none; background-color: #ecf1f7}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
-    span.s5 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s6 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
-    span.s7 {font-kerning: none}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSEQ 序列分析繪圖工具</title>
+  
+  <!-- 載入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 載入 React 與 ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  
+  <!-- 載入 Babel 以在瀏覽器中編譯 JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">html</span><span class="s5"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s1">"zh-TW"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s6">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s5"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">title</span><span class="s3">&gt;</span><span class="s1">GSEQ 序列分析繪圖工具</span><span class="s3">&lt;/</span><span class="s4">title</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- 載入 Tailwind CSS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- 載入 React 與 ReactDOM --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react@18/umd/react.production.min.js"</span><span class="s5"> </span><span class="s2">crossorigin</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"</span><span class="s5"> </span><span class="s2">crossorigin</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- 載入 Babel 以在瀏覽器中編譯 JSX --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/@babel/standalone/babel.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">body</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-50"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"root"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"text/babel"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>const { useState, useMemo, useRef, useEffect } = React;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>// 預設的測試數據</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>const defaultData = ` Look<span class="Apple-converted-space">  </span>Smile Talk<span class="Apple-converted-space">  </span>Touch</span></p>
-<p class="p5"><span class="s1">Look<span class="Apple-converted-space">  </span>-1.20 2.55<span class="Apple-converted-space">  </span>0.50<span class="Apple-converted-space">  </span>-0.30</span></p>
-<p class="p5"><span class="s1">Smile 0.10<span class="Apple-converted-space">  </span>-0.50 3.21<span class="Apple-converted-space">  </span>1.15</span></p>
-<p class="p5"><span class="s1">Talk<span class="Apple-converted-space">  </span>2.10<span class="Apple-converted-space">  </span>0.00<span class="Apple-converted-space">  </span>-1.10 2.85</span></p>
-<p class="p5"><span class="s1">Touch 0.50<span class="Apple-converted-space">  </span>1.50<span class="Apple-converted-space">  </span>-0.20 -0.80`;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>function App() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [inputText, setInputText] = useState(defaultData);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [threshold, setThreshold] = useState(1.96);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [error, setError] = useState('');</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 篩選狀態管理</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [valueFilter, setValueFilter] = useState('all');<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [visibleNodes, setVisibleNodes] = useState(new Set());</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 拖曳狀態管理 (節點)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const svgRef = useRef(null);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [manualPositions, setManualPositions] = useState({});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [draggingNode, setDraggingNode] = useState(null);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 拖曳狀態管理 (數值標籤)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [labelOffsets, setLabelOffsets] = useState({});<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [draggingLabel, setDraggingLabel] = useState(null);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 版權與版本紀錄隱藏狀態</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const [showAbout, setShowAbout] = useState(false);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 畫布基本設定</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const canvasSize = 800;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const canvasCenter = canvasSize / 2;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 解析輸入的文字資料 (支援 Tab、逗號、多個空白、特殊空白符號)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const parsedData = useMemo(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>try {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setError('');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (!inputText.trim()) return { nodes: [], edges: [] };</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const lines = inputText.split('\n');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (lines.length &lt; 2) throw new Error("資料行數不足，請提供包含標題的矩陣資料。");</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>// 讀取並清理標題列 (替換 non-breaking space)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const cleanHeaderLine = lines[0].replace(/\u00A0/g, ' ').trim();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const headers = cleanHeaderLine.split(/\t|,|\s{2,}/).map(s =&gt; s.trim()).filter(s =&gt; s !== '');</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">          </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (headers.length === 0) throw new Error("無法解析行為標題，請確認格式。");</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const nodesSet = new Set(headers);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const edges = [];</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>// 讀取數據列</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>for (let i = 1; i &lt; lines.length; i++) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>const cleanLine = lines[i].replace(/\u00A0/g, ' ').trim();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>if (!cleanLine) continue;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>const columns = cleanLine.split(/\t|,|\s{2,}/).map(s =&gt; s.trim()).filter(s =&gt; s !== '');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>if (columns.length === 0) continue;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>const sourceNode = columns[0];</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>nodesSet.add(sourceNode);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>for (let j = 1; j &lt; columns.length; j++) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>const targetNode = headers[j - 1];</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>const value = parseFloat(columns[j]);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>if (!targetNode) continue;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>if (!isNaN(value)) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>edges.push({</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>source: sourceNode,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>target: targetNode,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>value: value</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>return {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>nodes: Array.from(nodesSet),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>edges: edges</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>} catch (err) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setError(err.message || '資料解析失敗，請確保格式為從 Excel 複製的表格。');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>return { nodes: [], edges: [] };</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}, [inputText]);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 動態計算節點半徑：優化大小，設定合理的上限與下限，避免過度膨脹</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const nodeRadius = useMemo(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (parsedData.nodes.length === 0) return 32;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const maxLen = Math.max(...parsedData.nodes.map(n =&gt; n.length));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>// 基礎大小 32，字元越多稍微放大，但最高不超過 42</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>return Math.min(42, Math.max(32, maxLen * 2.8));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}, [parsedData.nodes]);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 當資料改變時，重置拖曳位置</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>useEffect(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setManualPositions({});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setLabelOffsets({});<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setVisibleNodes(new Set(parsedData.nodes));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}, [parsedData.nodes]);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 自動排版與對齊功能</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const handleFormatText = () =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>try {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const lines = inputText.split('\n');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (lines.length &lt; 2) return;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const headers = lines[0].replace(/\u00A0/g, ' ').trim().split(/\t|,|\s{2,}/).map(s =&gt; s.trim()).filter(s =&gt; s !== '');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (headers.length === 0) return;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const rows = [ ["", ...headers] ]; // 第一列左上角留空</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>for (let i = 1; i &lt; lines.length; i++) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>const cleanLine = lines[i].replace(/\u00A0/g, ' ').trim();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>if (!cleanLine) continue;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>const columns = cleanLine.split(/\t|,|\s{2,}/).map(s =&gt; s.trim()).filter(s =&gt; s !== '');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>if (columns.length &gt; 0) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>rows.push(columns);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>// 計算每個欄位的最大寬度</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const colWidths = [];</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>rows.forEach(row =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>row.forEach((cell, i) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>colWidths[i] = Math.max(colWidths[i] || 0, cell.length);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>});</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>// 重建對齊後的文字</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const formattedText = rows.map(row =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>return row.map((cell, i) =&gt; cell.padEnd(colWidths[i] + 3, ' ')).join('');</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>}).join('\n');</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setInputText(formattedText);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>} catch (err) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>console.error("Formatting failed", err);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setError("文字排版失敗，請確認資料格式是否正確。");</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 節點篩選切換邏輯</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const toggleNode = (node) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setVisibleNodes(prev =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const next = new Set(prev);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (next.has(node)) next.delete(node);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>else next.add(node);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>return next;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const toggleAllNodes = () =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (visibleNodes.size === parsedData.nodes.length) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setVisibleNodes(new Set());<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setVisibleNodes(new Set(parsedData.nodes));<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 過濾連線</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const filteredEdges = useMemo(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>return parsedData.edges.filter(edge =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (!visibleNodes.has(edge.source) || !visibleNodes.has(edge.target)) return false;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (Math.abs(edge.value) &lt; threshold) return false;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (valueFilter === 'positive' &amp;&amp; edge.value &lt; 0) return false;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (valueFilter === 'negative' &amp;&amp; edge.value &gt;= 0) return false;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>return true;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}, [parsedData.edges, threshold, visibleNodes, valueFilter]);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 計算預設座標</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const defaultPositions = useMemo(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const radius = 300;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const pos = {};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>parsedData.nodes.forEach((node, index) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const angle = (index / parsedData.nodes.length) * 2 * Math.PI - Math.PI / 2;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>pos[node] = {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>x: canvasCenter + radius * Math.cos(angle),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>y: canvasCenter + radius * Math.sin(angle),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>return pos;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}, [parsedData.nodes, canvasCenter]);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const currentPositions = useMemo(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>return { ...defaultPositions, ...manualPositions };</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}, [defaultPositions, manualPositions]);</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// --- 拖曳事件處理 ---</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const handlePointerDown = (e, node) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>e.preventDefault();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>e.stopPropagation();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setDraggingNode(node);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>e.target.setPointerCapture(e.pointerId);<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const handleLabelPointerDown = (e, edgeKey) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>e.preventDefault();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>e.stopPropagation();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const svg = svgRef.current;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const pt = svg.createSVGPoint();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>pt.x = e.clientX;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>pt.y = e.clientY;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const cursorPt = pt.matrixTransform(svg.getScreenCTM().inverse());</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setDraggingLabel({</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>key: edgeKey,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>startX: cursorPt.x,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>startY: cursorPt.y,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>initOffsetX: labelOffsets[edgeKey]?.x || 0,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>initOffsetY: labelOffsets[edgeKey]?.y || 0</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>e.target.setPointerCapture(e.pointerId);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const handlePointerMove = (e) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (!svgRef.current) return;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const svg = svgRef.current;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const pt = svg.createSVGPoint();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>pt.x = e.clientX;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>pt.y = e.clientY;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const cursorPt = pt.matrixTransform(svg.getScreenCTM().inverse());</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (draggingNode) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setManualPositions(prev =&gt; ({</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>...prev,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>[draggingNode]: { x: cursorPt.x, y: cursorPt.y }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>}));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>else if (draggingLabel) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const dx = cursorPt.x - draggingLabel.startX;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const dy = cursorPt.y - draggingLabel.startY;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">          </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setLabelOffsets(prev =&gt; ({</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>...prev,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>[draggingLabel.key]: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>x: draggingLabel.initOffsetX + dx,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>y: draggingLabel.initOffsetY + dy</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>}));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const handlePointerUp = (e) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (draggingNode) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setDraggingNode(null);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (e.target.hasPointerCapture(e.pointerId)) e.target.releasePointerCapture(e.pointerId);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (draggingLabel) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>setDraggingLabel(null);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (e.target.hasPointerCapture(e.pointerId)) e.target.releasePointerCapture(e.pointerId);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 下載 PNG</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const handleDownloadPNG = () =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (!svgRef.current) return;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const svgElement = svgRef.current;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const svgData = new XMLSerializer().serializeToString(svgElement);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const canvas = document.createElement("canvas");</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const ctx = canvas.getContext("2d");</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const img = new Image();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>canvas.width = canvasSize;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>canvas.height = canvasSize;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>img.onload = () =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>ctx.fillStyle = "white";</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>ctx.fillRect(0, 0, canvas.width, canvas.height);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>ctx.drawImage(img, 0, 0);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">          </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const pngFile = canvas.toDataURL("image/png");</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const downloadLink = document.createElement("a");</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>downloadLink.download = "gseq-plot.png";</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>downloadLink.href = pngFile;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>downloadLink.click();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData)));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const resetLayout = () =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setManualPositions({});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>setLabelOffsets({});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>// 繪製路徑計算</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>const calculateCurve = (source, target, value) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const s = currentPositions[source];</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const t = currentPositions[target];</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (!s || !t) return null;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (source === target) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>let nx = s.x - canvasCenter;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>let ny = s.y - canvasCenter;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const dist = Math.sqrt(nx*nx + ny*ny) || 1;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>nx = nx / dist;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>ny = ny / dist;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>if (s.x === canvasCenter &amp;&amp; s.y === canvasCenter) { nx = 0; ny = -1; }</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const px = -ny;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const py = nx;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const finalSx = s.x + (nx * 0.866 + px * 0.5) * nodeRadius;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const finalSy = s.y + (ny * 0.866 + py * 0.5) * nodeRadius;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const finalTx = s.x + (nx * 0.866 - px * 0.5) * nodeRadius;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const finalTy = s.y + (ny * 0.866 - py * 0.5) * nodeRadius;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>// 動態計算貝茲曲線的控制點距離</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const loopDist = nodeRadius * 2.5 + 25;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const loopSpread = nodeRadius * 1.5 + 15;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const cp1x = s.x + nx * loopDist + px * loopSpread;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const cp1y = s.y + ny * loopDist + py * loopSpread;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const cp2x = s.x + nx * loopDist - px * loopSpread;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>const cp2y = s.y + ny * loopDist - py * loopSpread;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">          </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>return {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>path: `M ${finalSx} ${finalSy} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${finalTx} ${finalTy}`,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>textX: s.x + nx * (loopDist + 15),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>textY: s.y + ny * (loopDist + 15),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>isPositive: value &gt;= 0</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const dx = t.x - s.x;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const dy = t.y - s.y;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const dist = Math.sqrt(dx * dx + dy * dy);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>if (dist === 0) return null;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const ux = dx / dist;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const uy = dy / dist;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const offset = 12;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const nx = -uy;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const ny = ux;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const sx = s.x + nx * offset;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const sy = s.y + ny * offset;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const tx = t.x + nx * offset;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const ty = t.y + ny * offset;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const finalSx = sx + ux * nodeRadius;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const finalSy = sy + uy * nodeRadius;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const finalTx = tx - ux * nodeRadius;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const finalTy = ty - uy * nodeRadius;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const midX = (finalSx + finalTx) / 2;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>const midY = (finalSy + finalTy) / 2;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>return {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>path: `M ${finalSx} ${finalSy} L ${finalTx} ${finalTy}`,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>textX: midX,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>textY: midY,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>isPositive: value &gt;= 0</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>return (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div className="min-h-screen p-6 font-sans text-gray-800"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div className="max-w-[1400px] mx-auto space-y-6"&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;header className="bg-white p-6 rounded-xl shadow-sm border border-gray-200"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;h1 className="text-2xl font-bold text-gray-800"&gt;GSEQ 序列分析繪圖工具&lt;/h1&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p className="text-gray-500 mt-2"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>將 GSEQ 矩陣報表貼上下方文字框。右側畫布支援&lt;strong&gt;自由拖曳節點&lt;/strong&gt;與&lt;strong&gt;數值標籤&lt;/strong&gt;，避免資料重疊。</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/header&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div className="grid grid-cols-1 lg:grid-cols-12 gap-6"&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>{/* 左側控制面板 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div className="space-y-6 lg:col-span-3"&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>{/* 1. 資料輸入 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;label className="block text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>1. 貼上矩陣資料</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;textarea</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>className="w-full min-h-[200px] h-64 lg:h-96 resize-y overflow-auto p-3 border border-gray-300 rounded-lg text-sm font-mono focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>value={inputText}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>onChange={(e) =&gt; setInputText(e.target.value)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>placeholder="貼上你的 Excel 資料..."</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>wrap="off"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>/&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>{error &amp;&amp; &lt;p className="text-red-500 text-sm mt-2 font-medium"&gt;{error}&lt;/p&gt;}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                  </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="flex flex-col gap-2 mt-3"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>onClick={handleFormatText}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>className="w-full py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-sm font-bold rounded-lg transition-colors shadow-sm"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>✨ 自動排版對齊 (整理貼上資料)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="flex gap-2"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>onClick={resetLayout}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>className="flex-1 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-colors"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>重置畫布</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/button&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>onClick={handleDownloadPNG}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>className="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>下載圖片</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/button&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>{/* 2. 顯著水準 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;label className="block text-sm font-semibold text-gray-700 mb-2"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>2. 顯著水準閾值 (Z值)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="flex items-center gap-4"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;input</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>type="range"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>min="0"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>max="5"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>step="0.01"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>value={threshold}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>onChange={(e) =&gt; setThreshold(parseFloat(e.target.value))}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>className="flex-1"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>/&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span className="font-mono bg-gray-100 px-3 py-1 rounded text-sm font-semibold"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>{threshold.toFixed(2)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/span&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>{/* 3. 篩選條件 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;label className="block text-sm font-semibold text-gray-700 mb-3"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>3. 篩選條件</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="mb-4 pb-4 border-b border-gray-100"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="flex flex-col gap-2 text-sm text-gray-700"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;label className="flex items-center gap-2 cursor-pointer"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="radio" name="valueFilter" value="all" checked={valueFilter === 'all'} onChange={() =&gt; setValueFilter('all')} className="text-blue-600 focus:ring-blue-500" /&gt; 全部顯示</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;label className="flex items-center gap-2 cursor-pointer"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="radio" name="valueFilter" value="positive" checked={valueFilter === 'positive'} onChange={() =&gt; setValueFilter('positive')} className="text-blue-600 focus:ring-blue-500" /&gt; 僅顯示正向 (促進)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;label className="flex items-center gap-2 cursor-pointer"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input type="radio" name="valueFilter" value="negative" checked={valueFilter === 'negative'} onChange={() =&gt; setValueFilter('negative')} className="text-red-500 focus:ring-red-500" /&gt; 僅顯示負向 (抑制)</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="flex justify-between items-center mb-2"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;p className="text-xs text-gray-500 font-medium"&gt;顯示參與的節點：&lt;/p&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;button onClick={toggleAllNodes} className="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>全選 / 反選</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/button&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div className="flex flex-wrap gap-2 mt-2 max-h-48 overflow-y-auto"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>{parsedData.nodes.map(node =&gt; (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;label key={node} className={`flex items-center gap-2 text-xs px-2 py-1 rounded border cursor-pointer transition-colors ${visibleNodes.has(node) ? 'bg-blue-50 border-blue-200 text-blue-800' : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100'}`}&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;input type="checkbox" className="rounded text-blue-600 focus:ring-blue-500 w-3 h-3" checked={visibleNodes.has(node)} onChange={() =&gt; toggleNode(node)} /&gt;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>{node}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>))}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>{/* 右側畫布區域 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 lg:col-span-9 flex flex-col items-center justify-center overflow-hidden"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 className="text-lg font-bold mb-4 w-full text-center"&gt;行為狀態轉換圖&lt;/h2&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>{parsedData.nodes.length === 0 ? (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div className="h-[800px] flex items-center justify-center text-gray-400"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>沒有可渲染的節點資料</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>) : (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;svg<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>ref={svgRef}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>width={canvasSize}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>height={canvasSize}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>className="max-w-full h-auto select-none touch-none bg-white rounded-lg border border-dashed border-gray-200"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>viewBox={`0 0 ${canvasSize} ${canvasSize}`}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>onPointerMove={handlePointerMove}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>onPointerUp={handlePointerUp}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>onPointerLeave={handlePointerUp}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;defs&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;marker id="arrow-positive" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" /&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/marker&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;marker id="arrow-negative" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;path d="M0,0 L0,6 L9,3 z" fill="#ef4444" /&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>&lt;/marker&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/defs&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>{/* 繪製連線與拖曳標籤 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>{filteredEdges.map((edge, i) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const curveData = calculateCurve(edge.source, edge.target, edge.value);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>if (!curveData) return null;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const isPositive = curveData.isPositive;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const edgeKey = `${edge.source}-${edge.target}`;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const labelOffset = labelOffsets[edgeKey] || { x: 0, y: 0 };</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const isDraggingThisLabel = draggingLabel &amp;&amp; draggingLabel.key === edgeKey;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>return (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;g key={`edge-${i}`}&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;path</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>d={curveData.path}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>fill="none"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>stroke={isPositive ? "#3b82f6" : "#ef4444"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>strokeWidth="2"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>strokeDasharray={isPositive ? "none" : "5,5"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>markerEnd={`url(#arrow-${isPositive ? 'positive' : 'negative'})`}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>opacity="0.8"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>className="transition-opacity duration-300 ease-in-out hover:opacity-100 hover:stroke-[3px]"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>/&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                          </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>{/* 可拖曳的標籤群組 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;g<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>transform={`translate(${labelOffset.x}, ${labelOffset.y})`}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>onPointerDown={(e) =&gt; handleLabelPointerDown(e, edgeKey)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>className={isDraggingThisLabel ? "cursor-grabbing" : "cursor-grab"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;rect<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>x={curveData.textX - 22}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>y={curveData.textY - 11}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>width="44"<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>height="22"<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>fill="white"<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>fillOpacity="0.95"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>rx="4"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>stroke={isDraggingThisLabel ? "#3b82f6" : "transparent"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>strokeWidth="1.5"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>pointerEvents="all"<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>className="transition-colors hover:stroke-gray-300 shadow-sm hover:drop-shadow-md"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>/&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;text</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>x={curveData.textX}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>y={curveData.textY}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>textAnchor="middle"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>dominantBaseline="middle"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>fontSize="11"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>fontWeight="bold"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>fill={isPositive ? "#1d4ed8" : "#b91c1c"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>pointerEvents="none"<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>style={{ userSelect: 'none' }}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                              </span>{edge.value.toFixed(2)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/text&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;/g&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/g&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>})}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>{/* 繪製節點 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>{parsedData.nodes.filter(n =&gt; visibleNodes.has(n)).map((node, i) =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const pos = currentPositions[node];</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>if (!pos) return null;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                      </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>const isDragging = draggingNode === node;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>return (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;g<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>key={`node-${i}`}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>transform={`translate(${pos.x}, ${pos.y})`}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>onPointerDown={(e) =&gt; handlePointerDown(e, node)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>className={isDragging ? "cursor-grabbing" : "cursor-grab"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;circle</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>r={nodeRadius}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>fill="#ffffff"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>stroke={isDragging ? "#3b82f6" : "#4b5563"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>strokeWidth={isDragging ? "3.5" : "2"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>className={`transition-shadow ${isDragging ? 'filter drop-shadow-lg' : 'hover:drop-shadow-md'}`}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>/&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;text</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>textAnchor="middle"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>dominantBaseline="middle"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>/* 微調：如果文字長度大於 8，字體就稍微縮小一點點，避免超出邊界 */</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>fontSize={node.length &gt; 8 ? "10" : "12"}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>fontWeight="bold"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>fill="#1f2937"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>pointerEvents="none"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>style={{ userSelect: 'none' }}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span>{node}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                          </span>&lt;/text&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/g&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                      </span>);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>})}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/svg&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{/* 低調的版本歷程與作者資訊 */}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;footer className="mt-6 text-center text-xs text-gray-400"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>onClick={() =&gt; setShowAbout(!showAbout)}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>className="hover:text-gray-600 transition-colors focus:outline-none"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>GSEQ 繪圖工具 v1.6.2 © pengweijie</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/button&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">              </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>{showAbout &amp;&amp; (</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div className="mt-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200 text-left text-gray-500 max-w-2xl mx-auto"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;h4 className="font-semibold text-gray-700 mb-2"&gt;版本歷程&lt;/h4&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;ul className="list-disc list-inside space-y-1.5 text-xs text-gray-500"&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong className="text-gray-700"&gt;v1.6.2 (最新)&lt;/strong&gt; - 優化節點大小比例：限制最大膨脹半徑，並針對長編碼自動縮小字體，解決圓圈過大造成的視覺不協調。&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong className="text-gray-700"&gt;v1.6.1&lt;/strong&gt; - 加入「動態節點大小」，自動依據最長編碼名稱調整圓圈半徑，並同步縮放自我重複線條，完美解決文字出框問題。&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong className="text-gray-700"&gt;v1.6.0&lt;/strong&gt; - 新增「自動排版對齊」按鈕並強制關閉輸入框自動換行，解決龐大矩陣貼上後格式亂掉與不換行空白 (nbsp) 造成的錯位問題。&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong className="text-gray-700"&gt;v1.5.1&lt;/strong&gt; - 優化協作平台嵌入顯示：加入自適應高度與輸入區塊強制捲動。&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;strong className="text-gray-700"&gt;v1.5.0&lt;/strong&gt; - 數值標籤支援自由拖曳（解決重疊問題），並大幅擴增資料輸入區塊（支援右下角手動拖曳放大）。&lt;/li&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/ul&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>)}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/footer&gt;</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p6"><span class="s7"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>const root = ReactDOM.createRoot(document.getElementById('root'));</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>root.render(&lt;App /&gt;);</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="bg-gray-50">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useMemo, useRef, useEffect } = React;
+
+    // 預設的測試數據
+    const defaultData = `	Look	Smile	Talk	Touch
+Look	-1.20	2.55	0.50	-0.30
+Smile	0.10	-0.50	3.21	1.15
+Talk	2.10	0.00	-1.10	2.85
+Touch	0.50	1.50	-0.20	-0.80`;
+
+    function App() {
+      const [inputText, setInputText] = useState(defaultData);
+      const [threshold, setThreshold] = useState(1.96);
+      const [error, setError] = useState('');
+      
+      // 篩選狀態管理
+      const [valueFilter, setValueFilter] = useState('all'); 
+      const [visibleNodes, setVisibleNodes] = useState(new Set());
+      
+      // 拖曳狀態管理 (節點)
+      const svgRef = useRef(null);
+      const [manualPositions, setManualPositions] = useState({});
+      const [draggingNode, setDraggingNode] = useState(null);
+      
+      // 拖曳狀態管理 (數值標籤)
+      const [labelOffsets, setLabelOffsets] = useState({}); 
+      const [draggingLabel, setDraggingLabel] = useState(null);
+
+      // 版權與版本紀錄隱藏狀態
+      const [showAbout, setShowAbout] = useState(false);
+      
+      // 畫布基本設定
+      const canvasSize = 800;
+      const canvasCenter = canvasSize / 2;
+
+      // 解析輸入的文字資料 (支援 Tab、逗號、多個空白、特殊空白符號)
+      const parsedData = useMemo(() => {
+        try {
+          setError('');
+          if (!inputText.trim()) return { nodes: [], edges: [] };
+
+          const lines = inputText.split('\n');
+          if (lines.length < 2) throw new Error("資料行數不足，請提供包含標題的矩陣資料。");
+
+          // 讀取並清理標題列 (替換 non-breaking space)
+          const cleanHeaderLine = lines[0].replace(/\u00A0/g, ' ').trim();
+          const headers = cleanHeaderLine.split(/\t|,|\s{2,}/).map(s => s.trim()).filter(s => s !== '');
+          
+          if (headers.length === 0) throw new Error("無法解析行為標題，請確認格式。");
+
+          const nodesSet = new Set(headers);
+          const edges = [];
+
+          // 讀取數據列
+          for (let i = 1; i < lines.length; i++) {
+            const cleanLine = lines[i].replace(/\u00A0/g, ' ').trim();
+            if (!cleanLine) continue;
+
+            const columns = cleanLine.split(/\t|,|\s{2,}/).map(s => s.trim()).filter(s => s !== '');
+            if (columns.length === 0) continue;
+
+            const sourceNode = columns[0];
+            nodesSet.add(sourceNode);
+
+            for (let j = 1; j < columns.length; j++) {
+              const targetNode = headers[j - 1];
+              const value = parseFloat(columns[j]);
+              
+              if (!targetNode) continue;
+              
+              if (!isNaN(value)) {
+                edges.push({
+                  source: sourceNode,
+                  target: targetNode,
+                  value: value
+                });
+              }
+            }
+          }
+
+          return {
+            nodes: Array.from(nodesSet),
+            edges: edges
+          };
+        } catch (err) {
+          setError(err.message || '資料解析失敗，請確保格式為從 Excel 複製的表格。');
+          return { nodes: [], edges: [] };
+        }
+      }, [inputText]);
+
+      // 動態計算節點半徑：優化大小，設定合理的上限與下限，避免過度膨脹
+      const nodeRadius = useMemo(() => {
+        if (parsedData.nodes.length === 0) return 32;
+        const maxLen = Math.max(...parsedData.nodes.map(n => n.length));
+        // 基礎大小 32，字元越多稍微放大，但最高不超過 42
+        return Math.min(42, Math.max(32, maxLen * 2.8));
+      }, [parsedData.nodes]);
+
+      // 當資料改變時，重置拖曳位置
+      useEffect(() => {
+        setManualPositions({});
+        setLabelOffsets({}); 
+        setVisibleNodes(new Set(parsedData.nodes));
+      }, [parsedData.nodes]);
+
+      // 自動排版與對齊功能
+      const handleFormatText = () => {
+        try {
+          const lines = inputText.split('\n');
+          if (lines.length < 2) return;
+
+          const headers = lines[0].replace(/\u00A0/g, ' ').trim().split(/\t|,|\s{2,}/).map(s => s.trim()).filter(s => s !== '');
+          if (headers.length === 0) return;
+
+          const rows = [ ["", ...headers] ]; // 第一列左上角留空
+
+          for (let i = 1; i < lines.length; i++) {
+            const cleanLine = lines[i].replace(/\u00A0/g, ' ').trim();
+            if (!cleanLine) continue;
+            const columns = cleanLine.split(/\t|,|\s{2,}/).map(s => s.trim()).filter(s => s !== '');
+            if (columns.length > 0) {
+              rows.push(columns);
+            }
+          }
+
+          // 計算每個欄位的最大寬度
+          const colWidths = [];
+          rows.forEach(row => {
+            row.forEach((cell, i) => {
+              colWidths[i] = Math.max(colWidths[i] || 0, cell.length);
+            });
+          });
+
+          // 重建對齊後的文字
+          const formattedText = rows.map(row => {
+            return row.map((cell, i) => cell.padEnd(colWidths[i] + 3, ' ')).join('');
+          }).join('\n');
+
+          setInputText(formattedText);
+        } catch (err) {
+          console.error("Formatting failed", err);
+          setError("文字排版失敗，請確認資料格式是否正確。");
+        }
+      };
+
+      // 節點篩選切換邏輯
+      const toggleNode = (node) => {
+        setVisibleNodes(prev => {
+          const next = new Set(prev);
+          if (next.has(node)) next.delete(node);
+          else next.add(node);
+          return next;
+        });
+      };
+
+      const toggleAllNodes = () => {
+        if (visibleNodes.size === parsedData.nodes.length) {
+          setVisibleNodes(new Set()); 
+        } else {
+          setVisibleNodes(new Set(parsedData.nodes)); 
+        }
+      };
+
+      // 過濾連線
+      const filteredEdges = useMemo(() => {
+        return parsedData.edges.filter(edge => {
+          if (!visibleNodes.has(edge.source) || !visibleNodes.has(edge.target)) return false;
+          if (Math.abs(edge.value) < threshold) return false;
+          if (valueFilter === 'positive' && edge.value < 0) return false;
+          if (valueFilter === 'negative' && edge.value >= 0) return false;
+          return true;
+        });
+      }, [parsedData.edges, threshold, visibleNodes, valueFilter]);
+
+      // 計算預設座標
+      const defaultPositions = useMemo(() => {
+        const radius = 300;
+        const pos = {};
+        parsedData.nodes.forEach((node, index) => {
+          const angle = (index / parsedData.nodes.length) * 2 * Math.PI - Math.PI / 2; 
+          pos[node] = {
+            x: canvasCenter + radius * Math.cos(angle),
+            y: canvasCenter + radius * Math.sin(angle),
+          };
+        });
+        return pos;
+      }, [parsedData.nodes, canvasCenter]);
+
+      const currentPositions = useMemo(() => {
+        return { ...defaultPositions, ...manualPositions };
+      }, [defaultPositions, manualPositions]);
+
+      // --- 拖曳事件處理 ---
+      const handlePointerDown = (e, node) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDraggingNode(node);
+        e.target.setPointerCapture(e.pointerId); 
+      };
+
+      const handleLabelPointerDown = (e, edgeKey) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const svg = svgRef.current;
+        const pt = svg.createSVGPoint();
+        pt.x = e.clientX;
+        pt.y = e.clientY;
+        const cursorPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+        
+        setDraggingLabel({
+          key: edgeKey,
+          startX: cursorPt.x,
+          startY: cursorPt.y,
+          initOffsetX: labelOffsets[edgeKey]?.x || 0,
+          initOffsetY: labelOffsets[edgeKey]?.y || 0
+        });
+        
+        e.target.setPointerCapture(e.pointerId);
+      };
+
+      const handlePointerMove = (e) => {
+        if (!svgRef.current) return;
+        
+        const svg = svgRef.current;
+        const pt = svg.createSVGPoint();
+        pt.x = e.clientX;
+        pt.y = e.clientY;
+        const cursorPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+
+        if (draggingNode) {
+          setManualPositions(prev => ({
+            ...prev,
+            [draggingNode]: { x: cursorPt.x, y: cursorPt.y }
+          }));
+        } 
+        else if (draggingLabel) {
+          const dx = cursorPt.x - draggingLabel.startX;
+          const dy = cursorPt.y - draggingLabel.startY;
+          
+          setLabelOffsets(prev => ({
+            ...prev,
+            [draggingLabel.key]: {
+              x: draggingLabel.initOffsetX + dx,
+              y: draggingLabel.initOffsetY + dy
+            }
+          }));
+        }
+      };
+
+      const handlePointerUp = (e) => {
+        if (draggingNode) {
+          setDraggingNode(null);
+          if (e.target.hasPointerCapture(e.pointerId)) e.target.releasePointerCapture(e.pointerId);
+        }
+        if (draggingLabel) {
+          setDraggingLabel(null);
+          if (e.target.hasPointerCapture(e.pointerId)) e.target.releasePointerCapture(e.pointerId);
+        }
+      };
+
+      // 下載 PNG
+      const handleDownloadPNG = () => {
+        if (!svgRef.current) return;
+        const svgElement = svgRef.current;
+        const svgData = new XMLSerializer().serializeToString(svgElement);
+        
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+
+        img.onload = () => {
+          ctx.fillStyle = "white";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0);
+          
+          const pngFile = canvas.toDataURL("image/png");
+          const downloadLink = document.createElement("a");
+          downloadLink.download = "gseq-plot.png";
+          downloadLink.href = pngFile;
+          downloadLink.click();
+        };
+
+        img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData)));
+      };
+
+      const resetLayout = () => {
+        setManualPositions({});
+        setLabelOffsets({});
+      };
+
+      // 繪製路徑計算
+      const calculateCurve = (source, target, value) => {
+        const s = currentPositions[source];
+        const t = currentPositions[target];
+        if (!s || !t) return null;
+
+        if (source === target) {
+          let nx = s.x - canvasCenter;
+          let ny = s.y - canvasCenter;
+          const dist = Math.sqrt(nx*nx + ny*ny) || 1;
+          nx = nx / dist;
+          ny = ny / dist;
+          if (s.x === canvasCenter && s.y === canvasCenter) { nx = 0; ny = -1; }
+
+          const px = -ny;
+          const py = nx;
+          const finalSx = s.x + (nx * 0.866 + px * 0.5) * nodeRadius;
+          const finalSy = s.y + (ny * 0.866 + py * 0.5) * nodeRadius;
+          const finalTx = s.x + (nx * 0.866 - px * 0.5) * nodeRadius;
+          const finalTy = s.y + (ny * 0.866 - py * 0.5) * nodeRadius;
+
+          // 動態計算貝茲曲線的控制點距離
+          const loopDist = nodeRadius * 2.5 + 25;
+          const loopSpread = nodeRadius * 1.5 + 15;
+          const cp1x = s.x + nx * loopDist + px * loopSpread;
+          const cp1y = s.y + ny * loopDist + py * loopSpread;
+          const cp2x = s.x + nx * loopDist - px * loopSpread;
+          const cp2y = s.y + ny * loopDist - py * loopSpread;
+          
+          return {
+            path: `M ${finalSx} ${finalSy} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${finalTx} ${finalTy}`,
+            textX: s.x + nx * (loopDist + 15),
+            textY: s.y + ny * (loopDist + 15),
+            isPositive: value >= 0
+          };
+        }
+
+        const dx = t.x - s.x;
+        const dy = t.y - s.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist === 0) return null;
+
+        const ux = dx / dist;
+        const uy = dy / dist;
+        const offset = 12; 
+        const nx = -uy;
+        const ny = ux;
+        
+        const sx = s.x + nx * offset;
+        const sy = s.y + ny * offset;
+        const tx = t.x + nx * offset;
+        const ty = t.y + ny * offset;
+
+        const finalSx = sx + ux * nodeRadius;
+        const finalSy = sy + uy * nodeRadius;
+        const finalTx = tx - ux * nodeRadius;
+        const finalTy = ty - uy * nodeRadius;
+
+        const midX = (finalSx + finalTx) / 2;
+        const midY = (finalSy + finalTy) / 2;
+
+        return {
+          path: `M ${finalSx} ${finalSy} L ${finalTx} ${finalTy}`,
+          textX: midX,
+          textY: midY,
+          isPositive: value >= 0
+        };
+      };
+
+      return (
+        <div className="min-h-screen p-6 font-sans text-gray-800">
+          <div className="max-w-[1400px] mx-auto space-y-6">
+            
+            <header className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <h1 className="text-2xl font-bold text-gray-800">GSEQ 序列分析繪圖工具</h1>
+              <p className="text-gray-500 mt-2">
+                將 GSEQ 矩陣報表貼上下方文字框。右側畫布支援<strong>自由拖曳節點</strong>與<strong>數值標籤</strong>，避免資料重疊。
+              </p>
+            </header>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* 左側控制面板 */}
+              <div className="space-y-6 lg:col-span-3">
+                
+                {/* 1. 資料輸入 */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    1. 貼上矩陣資料
+                  </label>
+                  <textarea
+                    className="w-full min-h-[200px] h-64 lg:h-96 resize-y overflow-auto p-3 border border-gray-300 rounded-lg text-sm font-mono focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    placeholder="貼上你的 Excel 資料..."
+                    wrap="off"
+                  />
+                  {error && <p className="text-red-500 text-sm mt-2 font-medium">{error}</p>}
+                  
+                  <div className="flex flex-col gap-2 mt-3">
+                    <button 
+                      onClick={handleFormatText}
+                      className="w-full py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-sm font-bold rounded-lg transition-colors shadow-sm"
+                    >
+                      ✨ 自動排版對齊 (整理貼上資料)
+                    </button>
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={resetLayout}
+                        className="flex-1 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-colors"
+                      >
+                        重置畫布
+                      </button>
+                      <button 
+                        onClick={handleDownloadPNG}
+                        className="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors"
+                      >
+                        下載圖片
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. 顯著水準 */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    2. 顯著水準閾值 (Z值)
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="range"
+                      min="0"
+                      max="5"
+                      step="0.01"
+                      value={threshold}
+                      onChange={(e) => setThreshold(parseFloat(e.target.value))}
+                      className="flex-1"
+                    />
+                    <span className="font-mono bg-gray-100 px-3 py-1 rounded text-sm font-semibold">
+                      {threshold.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* 3. 篩選條件 */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                  <label className="block text-sm font-semibold text-gray-700 mb-3">
+                    3. 篩選條件
+                  </label>
+                  <div className="mb-4 pb-4 border-b border-gray-100">
+                    <div className="flex flex-col gap-2 text-sm text-gray-700">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="valueFilter" value="all" checked={valueFilter === 'all'} onChange={() => setValueFilter('all')} className="text-blue-600 focus:ring-blue-500" /> 全部顯示
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="valueFilter" value="positive" checked={valueFilter === 'positive'} onChange={() => setValueFilter('positive')} className="text-blue-600 focus:ring-blue-500" /> 僅顯示正向 (促進)
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="valueFilter" value="negative" checked={valueFilter === 'negative'} onChange={() => setValueFilter('negative')} className="text-red-500 focus:ring-red-500" /> 僅顯示負向 (抑制)
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <p className="text-xs text-gray-500 font-medium">顯示參與的節點：</p>
+                      <button onClick={toggleAllNodes} className="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                        全選 / 反選
+                      </button>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-2 max-h-48 overflow-y-auto">
+                      {parsedData.nodes.map(node => (
+                        <label key={node} className={`flex items-center gap-2 text-xs px-2 py-1 rounded border cursor-pointer transition-colors ${visibleNodes.has(node) ? 'bg-blue-50 border-blue-200 text-blue-800' : 'bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100'}`}>
+                          <input type="checkbox" className="rounded text-blue-600 focus:ring-blue-500 w-3 h-3" checked={visibleNodes.has(node)} onChange={() => toggleNode(node)} /> 
+                          {node}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 右側畫布區域 */}
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 lg:col-span-9 flex flex-col items-center justify-center overflow-hidden">
+                <h2 className="text-lg font-bold mb-4 w-full text-center">行為狀態轉換圖</h2>
+                
+                {parsedData.nodes.length === 0 ? (
+                  <div className="h-[800px] flex items-center justify-center text-gray-400">
+                    沒有可渲染的節點資料
+                  </div>
+                ) : (
+                  <svg 
+                    ref={svgRef}
+                    width={canvasSize} 
+                    height={canvasSize} 
+                    className="max-w-full h-auto select-none touch-none bg-white rounded-lg border border-dashed border-gray-200"
+                    viewBox={`0 0 ${canvasSize} ${canvasSize}`}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    onPointerLeave={handlePointerUp}
+                  >
+                    <defs>
+                      <marker id="arrow-positive" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" />
+                      </marker>
+                      <marker id="arrow-negative" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#ef4444" />
+                      </marker>
+                    </defs>
+
+                    {/* 繪製連線與拖曳標籤 */}
+                    {filteredEdges.map((edge, i) => {
+                      const curveData = calculateCurve(edge.source, edge.target, edge.value);
+                      if (!curveData) return null;
+                      
+                      const isPositive = curveData.isPositive;
+                      const edgeKey = `${edge.source}-${edge.target}`;
+                      const labelOffset = labelOffsets[edgeKey] || { x: 0, y: 0 };
+                      const isDraggingThisLabel = draggingLabel && draggingLabel.key === edgeKey;
+                      
+                      return (
+                        <g key={`edge-${i}`}>
+                          <path
+                            d={curveData.path}
+                            fill="none"
+                            stroke={isPositive ? "#3b82f6" : "#ef4444"}
+                            strokeWidth="2"
+                            strokeDasharray={isPositive ? "none" : "5,5"}
+                            markerEnd={`url(#arrow-${isPositive ? 'positive' : 'negative'})`}
+                            opacity="0.8"
+                            className="transition-opacity duration-300 ease-in-out hover:opacity-100 hover:stroke-[3px]"
+                          />
+                          
+                          {/* 可拖曳的標籤群組 */}
+                          <g 
+                            transform={`translate(${labelOffset.x}, ${labelOffset.y})`}
+                            onPointerDown={(e) => handleLabelPointerDown(e, edgeKey)}
+                            className={isDraggingThisLabel ? "cursor-grabbing" : "cursor-grab"}
+                          >
+                            <rect 
+                              x={curveData.textX - 22} 
+                              y={curveData.textY - 11} 
+                              width="44" 
+                              height="22" 
+                              fill="white" 
+                              fillOpacity="0.95"
+                              rx="4"
+                              stroke={isDraggingThisLabel ? "#3b82f6" : "transparent"}
+                              strokeWidth="1.5"
+                              pointerEvents="all" 
+                              className="transition-colors hover:stroke-gray-300 shadow-sm hover:drop-shadow-md"
+                            />
+                            <text
+                              x={curveData.textX}
+                              y={curveData.textY}
+                              textAnchor="middle"
+                              dominantBaseline="middle"
+                              fontSize="11"
+                              fontWeight="bold"
+                              fill={isPositive ? "#1d4ed8" : "#b91c1c"}
+                              pointerEvents="none" 
+                              style={{ userSelect: 'none' }}
+                            >
+                              {edge.value.toFixed(2)}
+                            </text>
+                          </g>
+                        </g>
+                      );
+                    })}
+
+                    {/* 繪製節點 */}
+                    {parsedData.nodes.filter(n => visibleNodes.has(n)).map((node, i) => {
+                      const pos = currentPositions[node];
+                      if (!pos) return null;
+                      
+                      const isDragging = draggingNode === node;
+
+                      return (
+                        <g 
+                          key={`node-${i}`} 
+                          transform={`translate(${pos.x}, ${pos.y})`}
+                          onPointerDown={(e) => handlePointerDown(e, node)}
+                          className={isDragging ? "cursor-grabbing" : "cursor-grab"}
+                        >
+                          <circle
+                            r={nodeRadius}
+                            fill="#ffffff"
+                            stroke={isDragging ? "#3b82f6" : "#4b5563"}
+                            strokeWidth={isDragging ? "3.5" : "2"}
+                            className={`transition-shadow ${isDragging ? 'filter drop-shadow-lg' : 'hover:drop-shadow-md'}`}
+                          />
+                          <text
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            /* 微調：如果文字長度大於 8，字體就稍微縮小一點點，避免超出邊界 */
+                            fontSize={node.length > 8 ? "10" : "12"}
+                            fontWeight="bold"
+                            fill="#1f2937"
+                            pointerEvents="none"
+                            style={{ userSelect: 'none' }}
+                          >
+                            {node}
+                          </text>
+                        </g>
+                      );
+                    })}
+                  </svg>
+                )}
+              </div>
+
+            </div>
+
+            {/* 低調的版本歷程與作者資訊 */}
+            <footer className="mt-6 text-center text-xs text-gray-400">
+              <button 
+                onClick={() => setShowAbout(!showAbout)} 
+                className="hover:text-gray-600 transition-colors focus:outline-none"
+              >
+                GSEQ 繪圖工具 v1.6.2 © pengweijie
+              </button>
+              
+              {showAbout && (
+                <div className="mt-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200 text-left text-gray-500 max-w-2xl mx-auto">
+                  <h4 className="font-semibold text-gray-700 mb-2">版本歷程</h4>
+                  <ul className="list-disc list-inside space-y-1.5 text-xs text-gray-500">
+                    <li><strong className="text-gray-700">v1.6.2 (最新)</strong> - 優化節點大小比例：限制最大膨脹半徑，並針對長編碼自動縮小字體，解決圓圈過大造成的視覺不協調。</li>
+                    <li><strong className="text-gray-700">v1.6.1</strong> - 加入「動態節點大小」，自動依據最長編碼名稱調整圓圈半徑，並同步縮放自我重複線條，完美解決文字出框問題。</li>
+                    <li><strong className="text-gray-700">v1.6.0</strong> - 新增「自動排版對齊」按鈕並強制關閉輸入框自動換行，解決龐大矩陣貼上後格式亂掉與不換行空白 (nbsp) 造成的錯位問題。</li>
+                    <li><strong className="text-gray-700">v1.5.1</strong> - 優化協作平台嵌入顯示：加入自適應高度與輸入區塊強制捲動。</li>
+                    <li><strong className="text-gray-700">v1.5.0</strong> - 數值標籤支援自由拖曳（解決重疊問題），並大幅擴增資料輸入區塊（支援右下角手動拖曳放大）。</li>
+                  </ul>
+                </div>
+              )}
+            </footer>
+
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
